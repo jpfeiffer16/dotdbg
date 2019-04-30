@@ -53,8 +53,21 @@ module.exports = function () {
       : null;
   }
 
+  function getNearestCsproj(sourceFilePath) {
+    //Get parent dir
+    const sourcePath = path.parse(sourceFilePath);
+    const parentDir = sourcePath.dir;
+    if (parentDir === '/') throw 'Error: reached root dir';
+    const files = fs.readdirSync(parentDir);
+    const csprojs = files.filter(file => ~file.indexOf('.csproj'));
+    return csprojs.length
+      ? path.join(parentDir, csprojs[0])
+      : getNearestCsproj(parentDir);
+  }
+
   return {
     findBin,
-    getVsCodeLaunchFile
+    getVsCodeLaunchFile,
+    getNearestCsproj
   };
 };

@@ -12,7 +12,7 @@ const USE_SERVER = false;
 const USE_MICROSOFT_DEBUGGER = false;
 
 if (USE_SERVER) {
-  const debuggerStream = net.createConnection({port: 1234}, () => {
+  const debuggerStream = net.createConnection({port: 5321}, () => {
     debuggerStream.setEncoding('utf8');
     debuggerStream.on('end', () => process.exit(0));
     init(debuggerStream);
