@@ -10,4 +10,10 @@ Content-Length: 218
 
 {"body":{},"event":"initialized","seq":5,"type":"event"}Content-Length: 91
 
-{"body":{},"command":"initialize","request_seq":2,"seq":6,"success":true,"type":"response"}
+{"body":{},"command":"initialize","request_seq":2,"seq":6,"success":true,"type":"response"}Content-Length: 218
+
+{"body":{"capabilities":{"supportTerminateDebuggee":true,"supportsConditionalBreakpoints":true,"supportsConfigurationDoneRequest":true,"supportsFunctionBreakpoints":true}},"event":"capabilities","seq":7,"type":"event"}Content-Length: 56
+
+{"body":{},"event":"initialized","seq":8,"type":"event"}Content-Length: 91
+
+{"body":{},"command":"initialize","request_seq":3,"seq":9,"success":true,"type":"response"}

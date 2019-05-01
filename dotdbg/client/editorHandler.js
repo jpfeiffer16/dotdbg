@@ -4,13 +4,10 @@ const readline = require('readline');
 const VsCodeConfigEngine = require('../vscodeConfigEngine.js');
 const TestManager = require('./testManager.js');
 
-const logStream = fs.createWriteStream('./client.log');
-
 function EditorHandler(netModule, protocol, preSelectedDebuggerConfigNumber = null) {
   const editors = []
-        initCallbacks = [];
+    initCallbacks = [];
   const controllerServer = netModule.createServer(socket => {
-    socket.pipe(logStream);
     protocol.init();
     socket.setEncoding('utf8');
     socket.on('data', data => {
