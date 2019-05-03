@@ -25,8 +25,20 @@ function EditorHandler(netModule, protocol, preSelectedDebuggerConfigNumber = nu
         testManager.runTests(command.name.replace(/\(/g, '').replace(/\)/g, ''));
       }
 
+      if (command.command === 'debugTest') {
+        const csproj = utils.getNearestCsproj(command.filename);
+        const testManager = TestManager(csproj);
+        testManager.runTestsWithDebugger(
+          command.name.replace(/\(/g, '').replace(/\)/g, ''),
+          pid => {
+            // TODO: Init debugger with given pid, set breakpoints etc
+            console.log(pid);
+          }
+        );
+      }
+
       if (command.command === 'debugProgram') {
-        let file = parsed[1].file;
+        let file = parsed[1].filename;
         let breakpoints = parsed[1].breakpoints;
         breakpoints = breakpoints.filter(br => 
           br.signs.filter(sn => sn.name === 'brk').length > 0
