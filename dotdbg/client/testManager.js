@@ -9,7 +9,7 @@ module.exports = function TestManager(csproj) {
 
   function runTestsWithDebugger(name, cb) {
     const testProc = childProcess.exec(
-      `VSTEST_RUNNER_DEBUG=1 dotnet test --filter ${name} ${csproj}`
+      `VSTEST_HOST_DEBUG=1 dotnet test --filter ${name} ${csproj}`
     );
     testProc.stdout.pipe(process.stdout);
     let curBuffer = '';

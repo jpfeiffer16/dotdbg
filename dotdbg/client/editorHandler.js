@@ -32,7 +32,17 @@ function EditorHandler(netModule, protocol, preSelectedDebuggerConfigNumber = nu
           command.name.replace(/\(/g, '').replace(/\)/g, ''),
           pid => {
             // TODO: Init debugger with given pid, set breakpoints etc
-            console.log(pid);
+            // console.log(pid);
+            let breakpoints = command.breakpoints;
+            breakpoints = breakpoints.filter(br => 
+              br.signs.filter(sn => sn.name === 'brk').length > 0
+            );
+            breakpoints.forEach(br => {
+              br.signs = br.signs.filter(sn => sn.name === 'brk');
+            });
+            initCallbacks.forEach(cb => cb());
+            protocol.attach(pid);
+            init(breakpoints);
           }
         );
       }
@@ -74,21 +84,23 @@ function EditorHandler(netModule, protocol, preSelectedDebuggerConfigNumber = nu
             configSelector.close();
             initCallbacks.forEach(cb => cb());
             protocol.launchConfig(config.configurations[selectedInt]);
-            init();
+            init(breakpoints);
           })
         } else {
           const bin = utils.findBin(entryFile);
           initCallbacks.forEach(cb => cb());
           protocol.launch(bin);
-          init();
-        }
-        function init() {
-          breakpoints.forEach(br => {
-            protocol.setBreakpoints(br.filename, br.signs.map(sn => sn.lnum));
-          });
-          protocol.endConfig();
+          init(breakpoints);
         }
       }
+
+      function init(breakpoints, filename) {
+        breakpoints.forEach(br => {
+          protocol.setBreakpoints(br.filename, br.signs.map(sn => sn.lnum));
+        });
+        protocol.endConfig();
+      }
+
     });
   });
 
