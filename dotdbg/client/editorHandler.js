@@ -5,7 +5,7 @@ const VsCodeConfigEngine = require('../vscodeConfigEngine.js');
 const TestManager = require('./testManager.js');
 
 function EditorHandler(netModule, protocol, preSelectedDebuggerConfigNumber = null) {
-  const editors = []
+  let editors = []
     initCallbacks = [];
   const controllerServer = netModule.createServer(socket => {
     protocol.init();
@@ -31,8 +31,6 @@ function EditorHandler(netModule, protocol, preSelectedDebuggerConfigNumber = nu
         testManager.runTestsWithDebugger(
           command.name.replace(/\(/g, '').replace(/\)/g, ''),
           pid => {
-            // TODO: Init debugger with given pid, set breakpoints etc
-            // console.log(pid);
             let breakpoints = command.breakpoints;
             breakpoints = breakpoints.filter(br => 
               br.signs.filter(sn => sn.name === 'brk').length > 0
@@ -48,8 +46,8 @@ function EditorHandler(netModule, protocol, preSelectedDebuggerConfigNumber = nu
       }
 
       if (command.command === 'debugProgram') {
-        let file = parsed[1].filename;
-        let breakpoints = parsed[1].breakpoints;
+        let file = command.filename;
+        let breakpoints = command.breakpoints;
         breakpoints = breakpoints.filter(br => 
           br.signs.filter(sn => sn.name === 'brk').length > 0
         );
@@ -138,10 +136,22 @@ function EditorHandler(netModule, protocol, preSelectedDebuggerConfigNumber = nu
     initCallbacks.push(cb);
   }
 
+  function closeConnections() {
+    editors.forEach(editor => editor.socket.destroy());
+    editors = []; // Old editors should get GC'd
+  }
+
+  function destroy() {
+    closeConnections();
+    controllerServer.close();
+  }
+
   return {
     highlighStackFrame,
     clearHighlightInCurrentFile,
-    onInit
+    onInit,
+    closeConnections,
+    destroy
   };
 }
 

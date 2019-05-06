@@ -1,9 +1,11 @@
-const blessed = require('blessed');
-// const blessedContrib = require('blessed-contrib');
-const tree = require('./tree.js');
-const program = blessed.program();
-let screen;
+
 module.exports = function(debuggerHandler, protocol, editorHandler) {
+  const blessed = require('blessed');
+  // TODO: Remove this if we don't need it anymore.
+  // const blessedContrib = require('blessed-contrib');
+  const tree = require('./tree.js');
+  const program = blessed.program();
+  let screen;
   let frameId;
   let threads = [],
       threadList,
@@ -165,7 +167,9 @@ module.exports = function(debuggerHandler, protocol, editorHandler) {
 
     // Key bindings
     screen.key('q', () => {
-      process.exit(0);
+      screen.destroy();
+      protocol.disconnect();
+      editorHandler.closeConnections();
     });
 
     screen.key('C-n', () => {

@@ -161,6 +161,14 @@ const VsCodeProtocol = function(stream) {
     sendCommand(continueCommand);
   };
 
+  this.disconnect = () => {
+    const disconnectCommand = command('disconnect');
+    disconnectCommand.arguments = {
+      terminateDebuggee: true
+    };
+    sendCommand(disconnectCommand);
+  };
+
   sendCommand = (command) => {
     command.seq = seq;
     const commandStr = JSON.stringify(command);

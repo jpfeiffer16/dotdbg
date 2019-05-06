@@ -11,7 +11,6 @@ module.exports = function TestManager(csproj) {
     const testProc = childProcess.exec(
       `VSTEST_HOST_DEBUG=1 dotnet test --filter ${name} ${csproj}`
     );
-    testProc.stdout.pipe(process.stdout);
     let curBuffer = '';
     testProc.stdout.on('data', function checkPid(chunk) {
       // Do regex testing here
