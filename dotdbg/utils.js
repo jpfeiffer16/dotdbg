@@ -43,7 +43,7 @@ module.exports = function () {
     const vscodeFolders = files.filter(file => ~file.indexOf('.vscode'));
     return vscodeFolders.length
       ? getLaunchJson(path.join(parentDir, vscodeFolders[0]))
-      : getVsCodeLaunchFile(vscodeFolders[0]);
+      : getVsCodeLaunchFile(parentDir);
   }
   
   function getLaunchJson(vscodePath) {
