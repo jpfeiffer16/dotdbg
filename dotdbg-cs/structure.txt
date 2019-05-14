@@ -1,0 +1,9 @@
+EditorHandler - Listens for editor events
+
+DebuggerHandler - Creates the debugger process and manages talking to it
+  VSCodeProtocol - Used to create commands that can be sent to the dubugger
+
+TestManager - Used to run tests and setup commands for debugging tests
+
+ConfigManager - Used to read VSCode launch.json files to run debugger configurations
+

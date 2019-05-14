@@ -1,12 +1,17 @@
-﻿using System;
+﻿using System.Net;
+using System.Threading.Tasks;
 
 namespace DotDbg
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var ipAddress = IPAddress.Parse("127.0.0.1");
+            var listener = new DotDbgTcpListener(ipAddress, 4322);
+
+            var handler = new EditorHandler(listener);
+            await handler.Init();
         }
     }
 }
