@@ -27,9 +27,9 @@ namespace DotDbg
                     var buffer = new char[MAX_BUFFER_SIZE];
                     while (true)
                     {
-                        var readBytes = await reader.ReadAsync(buffer, 0, MAX_BUFFER_SIZE);
-                        Console.WriteLine(readBytes);
-                        var commandText = new String(buffer.Take(readBytes).ToArray());
+                        var readByte = await reader.ReadAsync(buffer, 0, MAX_BUFFER_SIZE);
+                        if (readByte == 0) break;
+                        var commandText = new String(buffer.Take(readByte).ToArray());
                         this.OnEditorCommand(commandText);
                     }
                 }
@@ -39,11 +39,9 @@ namespace DotDbg
 
         private void OnEditorCommand(string commandText)
         {
-            Console.WriteLine(commandText);
             try
             {
                 var command = JsonConvert.DeserializeObject<JObject>(commandText);
-                Console.WriteLine(command["Test"]);
             }
             catch (Exception e)
             {

@@ -4,4 +4,64 @@ Content-Length: 218
 
 {"body":{},"event":"initialized","seq":2,"type":"event"}Content-Length: 91
 
-{"body":{},"command":"initialize","request_seq":1,"seq":3,"success":true,"type":"response"}
+{"body":{},"command":"initialize","request_seq":1,"seq":3,"success":true,"type":"response"}Content-Length: 218
+
+{"body":{"capabilities":{"supportTerminateDebuggee":true,"supportsConditionalBreakpoints":true,"supportsConfigurationDoneRequest":true,"supportsFunctionBreakpoints":true}},"event":"capabilities","seq":4,"type":"event"}Content-Length: 56
+
+{"body":{},"event":"initialized","seq":5,"type":"event"}Content-Length: 91
+
+{"body":{},"command":"initialize","request_seq":2,"seq":6,"success":true,"type":"response"}Content-Length: 218
+
+{"body":{"capabilities":{"supportTerminateDebuggee":true,"supportsConditionalBreakpoints":true,"supportsConfigurationDoneRequest":true,"supportsFunctionBreakpoints":true}},"event":"capabilities","seq":7,"type":"event"}Content-Length: 56
+
+{"body":{},"event":"initialized","seq":8,"type":"event"}Content-Length: 91
+
+{"body":{},"command":"initialize","request_seq":3,"seq":9,"success":true,"type":"response"}Content-Length: 219
+
+{"body":{"capabilities":{"supportTerminateDebuggee":true,"supportsConditionalBreakpoints":true,"supportsConfigurationDoneRequest":true,"supportsFunctionBreakpoints":true}},"event":"capabilities","seq":10,"type":"event"}Content-Length: 57
+
+{"body":{},"event":"initialized","seq":11,"type":"event"}Content-Length: 92
+
+{"body":{},"command":"initialize","request_seq":4,"seq":12,"success":true,"type":"response"}Content-Length: 219
+
+{"body":{"capabilities":{"supportTerminateDebuggee":true,"supportsConditionalBreakpoints":true,"supportsConfigurationDoneRequest":true,"supportsFunctionBreakpoints":true}},"event":"capabilities","seq":13,"type":"event"}Content-Length: 57
+
+{"body":{},"event":"initialized","seq":14,"type":"event"}Content-Length: 92
+
+{"body":{},"command":"initialize","request_seq":5,"seq":15,"success":true,"type":"response"}Content-Length: 219
+
+{"body":{"capabilities":{"supportTerminateDebuggee":true,"supportsConditionalBreakpoints":true,"supportsConfigurationDoneRequest":true,"supportsFunctionBreakpoints":true}},"event":"capabilities","seq":16,"type":"event"}Content-Length: 57
+
+{"body":{},"event":"initialized","seq":17,"type":"event"}Content-Length: 92
+
+{"body":{},"command":"initialize","request_seq":6,"seq":18,"success":true,"type":"response"}Content-Length: 219
+
+{"body":{"capabilities":{"supportTerminateDebuggee":true,"supportsConditionalBreakpoints":true,"supportsConfigurationDoneRequest":true,"supportsFunctionBreakpoints":true}},"event":"capabilities","seq":19,"type":"event"}Content-Length: 57
+
+{"body":{},"event":"initialized","seq":20,"type":"event"}Content-Length: 92
+
+{"body":{},"command":"initialize","request_seq":7,"seq":21,"success":true,"type":"response"}Content-Length: 219
+
+{"body":{"capabilities":{"supportTerminateDebuggee":true,"supportsConditionalBreakpoints":true,"supportsConfigurationDoneRequest":true,"supportsFunctionBreakpoints":true}},"event":"capabilities","seq":22,"type":"event"}Content-Length: 57
+
+{"body":{},"event":"initialized","seq":23,"type":"event"}Content-Length: 92
+
+{"body":{},"command":"initialize","request_seq":8,"seq":24,"success":true,"type":"response"}Content-Length: 219
+
+{"body":{"capabilities":{"supportTerminateDebuggee":true,"supportsConditionalBreakpoints":true,"supportsConfigurationDoneRequest":true,"supportsFunctionBreakpoints":true}},"event":"capabilities","seq":25,"type":"event"}Content-Length: 57
+
+{"body":{},"event":"initialized","seq":26,"type":"event"}Content-Length: 92
+
+{"body":{},"command":"initialize","request_seq":9,"seq":27,"success":true,"type":"response"}Content-Length: 219
+
+{"body":{"capabilities":{"supportTerminateDebuggee":true,"supportsConditionalBreakpoints":true,"supportsConfigurationDoneRequest":true,"supportsFunctionBreakpoints":true}},"event":"capabilities","seq":28,"type":"event"}Content-Length: 57
+
+{"body":{},"event":"initialized","seq":29,"type":"event"}Content-Length: 93
+
+{"body":{},"command":"initialize","request_seq":10,"seq":30,"success":true,"type":"response"}Content-Length: 219
+
+{"body":{"capabilities":{"supportTerminateDebuggee":true,"supportsConditionalBreakpoints":true,"supportsConfigurationDoneRequest":true,"supportsFunctionBreakpoints":true}},"event":"capabilities","seq":31,"type":"event"}Content-Length: 57
+
+{"body":{},"event":"initialized","seq":32,"type":"event"}Content-Length: 93
+
+{"body":{},"command":"initialize","request_seq":11,"seq":33,"success":true,"type":"response"}

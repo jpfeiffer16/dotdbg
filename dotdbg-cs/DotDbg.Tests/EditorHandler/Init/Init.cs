@@ -2,7 +2,6 @@ using NUnit.Framework;
 using NSubstitute;
 using System.Threading.Tasks;
 using System.IO;
-using System.Threading;
 
 namespace DotDbg.Tests
 {
@@ -10,12 +9,13 @@ namespace DotDbg.Tests
     {
         private IDotDbgTcpListener listener;
         private EditorHandler handler;
+        private IDotDbgTcpClient client;
         private MemoryStream ms;
 
         public override void Given()
         {
-            var client = Substitute.For<IDotDbgTcpClient>();
-            this.ms = new MemoryStream();
+            this.client = Substitute.For<IDotDbgTcpClient>();
+            this.ms = new MemoryStream(100);
             client.GetStream().Returns(ms);
             this.listener = Substitute.For<IDotDbgTcpListener>();
             this.listener.AcceptTcpClientAsync().Returns(
@@ -26,19 +26,21 @@ namespace DotDbg.Tests
         public override void When()
         {
             handler.Init().Wait();
-            // Thread.Sleep(300);
-            using (var msWriter = new StreamWriter(this.ms))
-            {
-                msWriter.Write(0);
-                msWriter.Flush();
-            }
             this.ms.Close();
+            this.client.Dispose();
+            this.client.Dispose();
         }
 
         [Test]
         public void ListenerStartWasCalled()
         {
             this.listener.Received().Start();
+        }
+
+        [Test]
+        public void ClientGetSteamWasCalled()
+        {
+            this.client.Received().GetStream();
         }
 
     }
