@@ -169,11 +169,10 @@ const VsCodeProtocol = function(stream) {
     sendCommand(disconnectCommand);
   };
 
-  sendCommand = (command) => {
+  const sendCommand = (command) => {
     command.seq = seq;
     const commandStr = JSON.stringify(command);
     stream.write(`Content-Length: ${commandStr.length}\r\n\r\n${commandStr}`);
-    // process.stdout.write(commandStr);
   };
 
 };

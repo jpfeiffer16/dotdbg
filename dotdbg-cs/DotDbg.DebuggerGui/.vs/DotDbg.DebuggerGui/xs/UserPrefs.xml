@@ -1,0 +1,35 @@
+﻿<Properties StartupConfiguration="{E85FE958-F125-4590-8969-89C7F2DF135E}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DotDbg.DebuggerGui/Program.cs">
+    <Files>
+      <File FileName="DotDbg.DebuggerGui/Program.cs" Line="17" Column="1" />
+      <File FileName="DotDbg.DebuggerGui/MainWindow.cs" Line="9" Column="47" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="DotDbg.DebuggerGui" expanded="True">
+            <Node name="DotDbg.DebuggerGui" expanded="True">
+              <Node name="UserInterface" expanded="True" />
+              <Node name="Program.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="ClassPad">
+        <State name="__root__">
+          <Node name="DotDbg.DebuggerGui" expanded="True" selected="True" />
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.DotDbg.DebuggerGui PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

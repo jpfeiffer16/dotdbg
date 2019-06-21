@@ -1,12 +1,14 @@
-using NUnit.Framework;
-using NSubstitute;
-using System.Threading.Tasks;
 using System.IO;
+using System.Threading.Tasks;
+using NSubstitute;
+using NUnit.Framework;
 
 namespace DotDbg.Tests
 {
+
     public class Init : Behavior
     {
+        private IDotDbgTcpClient listenertwo;
         private IDotDbgTcpListener listener;
         private EditorHandler handler;
         private IDotDbgTcpClient client;
@@ -16,7 +18,7 @@ namespace DotDbg.Tests
         {
             this.client = Substitute.For<IDotDbgTcpClient>();
             this.ms = new MemoryStream(100);
-            client.GetStream().Returns(ms);
+            client.Stream.Returns(ms);
             this.listener = Substitute.For<IDotDbgTcpListener>();
             this.listener.AcceptTcpClientAsync().Returns(
               Task.FromResult(client));
@@ -40,7 +42,7 @@ namespace DotDbg.Tests
         [Test]
         public void ClientGetSteamWasCalled()
         {
-            this.client.Received().GetStream();
+            this.client.Received().Stream;
         }
 
     }

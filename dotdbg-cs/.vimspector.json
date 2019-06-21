@@ -1,0 +1,12 @@
+{
+    "configurations": {
+        "launch": {
+            "adapter": "netcoredbg",
+             "configuration": {
+                 "request": "launch", 
+                 "program": "/home/jpfeiffer/Source/dotdbg/dotdbg-cs/DotDbg/bin/Debug/netcoreapp2.1/DotDbg.dll",
+                 "stopAtEntry": true 
+             }
+        }
+    }
+}
