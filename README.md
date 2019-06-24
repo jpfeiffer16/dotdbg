@@ -1,5 +1,7 @@
 # Dotdbg dotnet debugger frontend for vim
 
+> This project has been depreciated in favor of using [vimspector](https://github.com/puremourning/vimspector) which now has support for the netcoredbg debugger
+
 dotdbg uses the Samsung dotnet debugger to provide a dotnet core debugging experience for vim.
 
 NOTE:
