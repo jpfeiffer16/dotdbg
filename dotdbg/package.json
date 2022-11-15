@@ -13,7 +13,7 @@
   "license": "MIT",
   "dependencies": {
     "blessed": "^0.1.81",
-    "blessed-contrib": "^4.8.12",
+    "blessed-contrib": "^4.11.0",
     "duplexer": "^0.1.1",
     "uuid": "^3.3.2"
   }
